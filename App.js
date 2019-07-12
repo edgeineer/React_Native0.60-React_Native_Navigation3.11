@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import { createBottomTabNavigator } from "react-navigation";
 
 import {
   Header,
@@ -22,9 +23,10 @@ import {
   Colors,
   DebugInstructions,
   ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+}                           from 'react-native/Libraries/NewAppScreen';
+import {createAppContainer} from "react-navigation";
 
-const App = () => {
+const Home = () => {
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
@@ -110,5 +112,13 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+const AppNavigator = createBottomTabNavigator({
+  Intro: {
+    screen: Home
+  }
+});
+
+const App = createAppContainer(AppNavigator);
 
 export default App;
